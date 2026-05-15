@@ -1,0 +1,33 @@
+@use "@/styles/helpers" as *;
+
+.button {
+  @include reset-button;
+  @include flex-center;
+
+  color: var(--color-text-primary);
+  filter: drop-shadow(1px 3px 5px color-mix(in srgb, black 30%, transparent));
+  transition-duration: var(--transition-duration);
+
+  @include hover {
+    transform: translateY(-1px);
+    color: var(--color-accent-primary);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.iconWrapper {
+  @include flex-center;
+
+  & > svg {
+    @include square(45px);
+
+    color: var(--color-icon-primary);
+
+    @include hover {
+      color: var(--color-accent-primary);
+    }
+  }
+}

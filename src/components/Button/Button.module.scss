@@ -1,0 +1,64 @@
+@use "@/styles/helpers" as *;
+
+.button {
+  @include flex-center;
+  @include reset-button;
+  @include fluid-text(18, 16);
+
+  position: relative;
+  min-width: min-content;
+  padding-inline: var(--element-padding-inline);
+  border-radius: var(--border-radius);
+  color: var(--color-text-primary);
+  box-shadow: var(--box-shadow-button);
+  font-weight: 700;
+  text-decoration: none;
+  user-select: none;
+  white-space: nowrap;
+  isolation: isolate;
+  overflow: hidden;
+  contain: paint;
+  filter: saturate(150%);
+  transition-duration: var(--transition-duration-alt);
+  will-change: transform;
+
+  @include hover {
+    scale: 1.02;
+    color: var(--color-accent-primary);
+    text-shadow: var(--text-shadow-accent);
+    
+    .bubble {
+      opacity: 0;
+    }
+
+    .hoverBubble {
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.bubble {
+  @include glass-bubble-base;
+  @include glass-bubble-highlight;
+
+  opacity: 1;
+  transition-duration: var(--transition-duration-alt);
+  will-change: transform;
+}
+
+.hoverBubble {
+  @include glass-bubble;
+
+  opacity: 0;
+  box-shadow: var(--box-shadow-inset-accent);
+  transition-duration: var(--transition-duration-alt);
+  will-change: transform;
+}

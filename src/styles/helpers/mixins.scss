@@ -1,0 +1,176 @@
+@use "sass:math";
+@use "functions" as *;
+
+@mixin fluid-text($max: 48, $min: 16) {
+  font-size: fluid($max, $min);
+}
+
+@mixin hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@mixin show {
+  opacity: 1;
+  visibility: visible;
+}
+
+@mixin flex-center($isInline: false) {
+  @if $isInline {
+    display: inline-flex;
+  } @else {
+    display: flex;
+  }
+
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+@mixin abs-x {
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+}
+
+@mixin abs-y {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+}
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+@mixin reset-button {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+}
+
+@mixin container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  padding-inline: var(--container-padding-x);
+  padding-block: var(--container-padding-y);
+  margin-inline: auto;
+}
+
+@mixin section-subtitle {
+  @include fluid-text(30, 20);
+
+  padding-left: 20px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  text-shadow: var(--text-shadow-secondary);
+  color: var(--color-text-primary);
+  user-select: none;
+}
+
+@mixin glass-base(
+  $borderRadius: var(--border-radius),
+  $isOverflowHidden: true
+) {
+  position: relative;
+  border-radius: $borderRadius;
+  background: var(--glass-background);
+  border: 1px solid rgba(255, 255, 255, 0.107);
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.18),
+    inset 0 1px 1px rgba(255, 255, 255, 0.35),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.08);
+
+  @if $isOverflowHidden {
+    overflow: hidden;
+  } @else {
+    overflow: visible;
+  }
+}
+
+@mixin glass-highlight {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--glass-highlight-background);
+    pointer-events: none;
+  }
+}
+
+@mixin glass-glow {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--glass-glow-background);
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+}
+
+@mixin glass($borderRadius: 18px, $isOverflowHidden: true) {
+  @include glass-base($borderRadius, $isOverflowHidden);
+  @include glass-highlight;
+  @include glass-glow;
+}
+
+@mixin glass-bubble-base {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 1px 2px var(--color-text-primary);
+  pointer-events: none;
+}
+
+@mixin glass-bubble-highlight {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--glass-highlight-background);
+  }
+}
+
+@mixin glass-bubble-glow {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--glass-glow-background);
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+}
+
+@mixin glass-bubble {
+  @include glass-bubble-base;
+  @include glass-bubble-highlight;
+  @include glass-bubble-glow;
+}

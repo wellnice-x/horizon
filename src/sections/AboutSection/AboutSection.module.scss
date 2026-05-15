@@ -1,0 +1,107 @@
+@use "@/styles/helpers" as *;
+
+.section {
+  @include container;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  row-gap: 50px;
+  padding-top: 130px;
+}
+
+.sectionTitle {
+  @include visually-hidden;
+}
+
+.headerBody {
+  @include flex-center;
+
+  align-items: center;
+  gap: 14px;
+  color: var(--color-text-primary);
+  will-change: transform;
+
+  & .greetingsMessage {
+    @include fluid-text(28, 20);
+
+    white-space: pre-line;
+  }
+
+  & .avatar {
+    @include glass(50%);
+
+    object-fit: cover;
+
+    @include hover {
+      filter: brightness(1.05);
+    }
+
+    @include mobile-s {
+      @include square(200px);
+    }
+  }
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.sectionBody {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sectionBodyInner {
+  @include glass-base;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  row-gap: 20px;
+  padding-inline: 20px;
+  padding-block: 60px;
+  color: var(--color-text-primary);
+
+  @include tablet {
+    padding-inline: 10px;
+  }
+}
+
+.statusBarWrapper {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.chatMessageRow {
+  display: flex;
+  width: 100%;
+
+  &[data-side="left"] {
+    justify-content: flex-start;
+  }
+
+  &[data-side="right"] {
+    justify-content: flex-end;
+  }
+}
+
+.chatMessage {
+  max-width: 730px;
+  font-size: 18px;
+  white-space: pre-line;
+
+  @include tablet {
+    max-width: 590px;
+    font-size: 16px;
+  }
+
+  @include mobile {
+    max-width: 375px;
+    font-size: 14px;
+  }
+}

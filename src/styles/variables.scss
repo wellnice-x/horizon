@@ -1,0 +1,80 @@
+@use "@/styles/helpers" as *;
+
+:root {
+  --color-text-primary: #fffbf1;
+
+  --color-icon-primary: #ffffff;
+  --color-icon-secondary: #00d9ff;
+
+  --color-accent-primary: #00eeff;
+
+  --text-shadow-primary: 0px 0px 15px rgba(255, 255, 255, 0.495);
+  --text-shadow-secondary: 2px 2px 10px #00000091;
+  --text-shadow-secondary-alt: 1px 1px 5px #00000056;
+  --text-shadow-thirdly:
+    0 0 15px rgba(0, 251, 255, 0.704), 0 0 25px rgba(0, 255, 234, 0.814);
+  --text-shadow-accent:
+    0 0 0px rgb(from var(--color-accent-primary) r g b / 0.7),
+    0 0 7px rgb(from var(--color-accent-primary) r g b / 0.7);
+
+  --box-shadow: 0px 0px 35px 5px rgba(0, 0, 0, 0.46);
+  --box-shadow-strong: 0px 0px 35px 10px rgba(0, 0, 0, 0.816);
+  --box-shadow-petty: 0px 0px 35px 10px rgba(0, 0, 0, 0.048);
+  --box-shadow-button: 0px 0px 35px 5px rgba(0, 0, 0, 0.226);
+  --box-shadow-inset: inset 0px 0px 40px 20px rgba(0, 0, 0, 0.8);
+  --box-shadow-inset-accent: inset 0 1px 2px var(--color-accent-primary);
+
+  --linear-gradient: linear-gradient(
+    130deg,
+    rgba(0, 211, 230, 0.893),
+    rgba(0, 89, 255, 0.968)
+  );
+
+  --glass-background: linear-gradient(
+    130deg,
+    rgba(19, 224, 255, 0.318),
+    rgba(0, 72, 255, 0.147)
+  );
+  --glass-highlight-background: linear-gradient(
+    180deg,
+    rgba(205, 230, 255, 0.275) 0%,
+    rgba(160, 220, 255, 0.301) 30%,
+    transparent 60%
+  );
+  --glass-glow-background: radial-gradient(
+    circle at bottom,
+    rgba(195, 208, 255, 0.263),
+    transparent 45%
+  );
+
+  --header-height: 90px;
+
+  --border-radius: 18px;
+  --border-radius-alt: 12px;
+
+  --element-padding-inline: 24px;
+
+  --container-width: 1320px;
+  --container-padding-x: 60px;
+  --container-padding-y: 50px;
+
+  --font-family-primary: "Science Gothic", sans-serif;
+
+  --transition-duration: 0.2s;
+  --transition-duration-alt: 0.4s;
+
+  @include tablet {
+    --container-padding-x: 40px;
+  }
+
+  @include mobile {
+    --element-padding-inline: 20px;
+    --container-padding-x: 15px;
+    --container-padding-y: 30px;
+  }
+
+  @include mobile-s {
+    --element-padding-inline: 14px;
+    --element-base-height: 54px;
+  }
+}

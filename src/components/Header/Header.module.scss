@@ -1,0 +1,65 @@
+@use "@/styles/helpers" as *;
+
+.header {
+  @include glass-base(0, false);
+
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  width: 100%;
+  height: var(--header-height);
+  padding-inline: 10px;
+  border: none;
+  background-color: transparent;
+  color: var(--color-text-primary);
+  box-shadow: var(--box-shadow);
+  transition-duration: var(--transition-duration);
+}
+
+.headerScrolled {
+  height: calc(var(--header-height) - 20px);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.logo {
+  filter: drop-shadow(0px 5px 25px #00000059);
+  transition-duration: var(--transition-duration-alt);
+  will-change: transform;
+
+  @include hover {
+    scale: 1.05;
+  }
+
+  @include mobile {
+    width: 120px;
+  }
+}
+
+.actionsWrapper {
+  @include flex-center;
+
+  column-gap: 20px;
+}
+
+.desktopNavigation {
+  @include mobile {
+    display: none;
+  }
+}
+
+.mobileNavigation {
+  display: none;
+
+  @include mobile {
+    display: block;
+  }
+}
+
+.buttonsWrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+}

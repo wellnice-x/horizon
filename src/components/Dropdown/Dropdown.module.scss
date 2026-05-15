@@ -1,0 +1,97 @@
+@use "@/styles/helpers" as *;
+
+.dropdown {
+  position: relative;
+}
+
+.button {
+  @include reset-button;
+  @include flex-center;
+  @include square(35px);
+
+  position: relative;
+  color: var(--color-icon-primary);
+  filter: saturate(150%)
+    drop-shadow(
+      1px 3px 5px color-mix(in srgb, var(--color-icon-primary) 30%, transparent)
+    );
+  transition-duration: var(--transition-duration-alt);
+
+  @include hover {
+    transform: translateY(-1px);
+    color: var(--color-accent-primary);
+    box-shadow: var(--box-shadow-petty);
+
+    .bubble {
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.bubble {
+  @include glass-bubble;
+  @include abs-center;
+
+  padding: 20px;
+  border-radius: var(--border-radius-alt);
+  opacity: 0;
+  box-shadow: var(--box-shadow-inset-accent);
+  transition-duration: var(--transition-duration-alt);
+  will-change: opacity;
+}
+
+.menu {
+  @include glass;
+
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 120%;
+  right: 0;
+  z-index: 1000;
+  padding: 10px;
+  min-width: fit-content;
+  transform: scaleX(0.1) scaleY(0.1);
+  transform-origin: right top;
+  transition-duration: var(--transition-duration);
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  border: none;
+  border-radius: var(--border-radius);
+  background: var(--linear-gradient);
+  will-change: transform;
+
+  &.open {
+    transform: scaleX(1) scaleY(1);
+    pointer-events: auto;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &.rightSide {
+    left: 0;
+    transform-origin: left top;
+  }
+}
+
+.menuTitle {
+  padding-bottom: 5px;
+  color: var(--color-text-primary);
+  text-shadow: var(--text-shadow-thirdly);
+  user-select: none;
+  isolation: isolate;
+}
+
+.childrenWrapper {
+  @include glass-base;
+
+  padding: 10px;
+  background: var(--linear-gradient);
+  border: none;
+}

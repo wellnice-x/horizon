@@ -1,0 +1,26 @@
+@use "@/styles/helpers" as *;
+
+.section {
+  @include container;
+
+  width: 100%;
+}
+
+.sectionTitle {
+  @include visually-hidden;
+}
+
+.mainSectionBody {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.sectionSubtitle {
+  @include section-subtitle;
+
+  @include mobile {
+    text-align: center;
+    padding-left: 0px;
+  }
+}

@@ -1,0 +1,17 @@
+@use "@/styles/helpers" as *;
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 70px;
+  flex-grow: 1;
+
+  @include mobile {
+    padding-top: 30px;
+  }
+}
+
+.mainTitle {
+  @include visually-hidden;
+}

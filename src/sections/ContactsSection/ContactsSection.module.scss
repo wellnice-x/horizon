@@ -1,0 +1,60 @@
+@use "@/styles/helpers" as *;
+
+.section {
+  @include container;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sectionTitle {
+  @include section-subtitle;
+
+  padding: 0 0 10px 0;
+}
+
+.contactsList {
+  @include glass(50%);
+
+  display: flex;
+  max-width: fit-content;
+  padding: 15px;
+  column-gap: 10px;
+  border-radius: 20px;
+
+  @include mobile {
+    padding: 10px;
+  }
+}
+
+.contactsItem {
+  @include glass-base;
+  @include flex-center;
+
+  background-color: rgb(from var(--color-icon-secondary) r g b / 0.25);
+  transition-duration: var(--transition-duration);
+}
+
+.contactsLink {
+  @include flex-center;
+
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  transition-duration: var(--transition-duration);
+
+  @include hover {
+    background-color: rgb(from var(--color-accent-primary) r g b / 0.95);
+  }
+
+  & .contactsIcon {
+    @include square(50px);
+
+    color: var(--color-icon-primary);
+  
+    @include mobile {
+      @include square(30px);
+    }
+  }
+}

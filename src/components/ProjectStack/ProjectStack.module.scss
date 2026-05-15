@@ -1,0 +1,32 @@
+@use "@/styles/helpers" as *;
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+}
+
+.item {
+  @include glass-base(50%);
+  @include flex-center;
+
+  padding: 15px;
+  filter: saturate(125%);
+
+  @include hover {
+    @include glass(50%);
+  }
+
+  @include mobile {
+    padding: 10px;
+  }
+}
+
+.image {
+  display: block;
+
+  @include mobile {
+    @include square(35px);
+  }
+}

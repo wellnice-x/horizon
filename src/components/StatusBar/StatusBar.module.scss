@@ -1,0 +1,22 @@
+@use "@/styles/helpers" as *;
+
+.statusBar {
+  @include glass-base;
+  @include flex-center;
+
+  width: fit-content;
+  column-gap: 6px;
+  padding-block: 5px;
+  padding-inline: 10px;
+
+  & .icon {
+    @include square(25px);
+
+    color: var(--color-icon-primary);
+    transition-duration: var(--transition-duration-alt);
+
+    @include hover {
+      color: var(--color-accent-primary);
+    }
+  }
+}
