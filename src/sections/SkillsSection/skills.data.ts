@@ -4,7 +4,7 @@ export const hardSkills = [
   "JavaScript, TypeScript",
   "Vite, React, React Router, Zustand",
   "REST API, Axios, TanStack Query",
-  "Git, БЭМ, Feature-Sliced Design, Accessibility",
+  "Git, БЭМ, Feature-Sliced Design, Vitest, MSW, Accessibility",
   "English level - B1",
 ];
 
